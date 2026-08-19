@@ -1,22 +1,23 @@
 # Victor Atelier
 
-A complete tailor shop service app — customer storefront plus staff atelier desk.
+A tailor shop **web app**: public website plus a staff workroom desk.
 
-## What it does
+## Pages
 
-**Customers**
-- Browse bespoke services and pricing
-- Book a consultation or fitting
-- Track an order with ticket number and phone
+| URL | What it is |
+| --- | --- |
+| `/` | House homepage |
+| `/services.html` | Service list and prices |
+| `/lookbook.html` | Gallery |
+| `/book.html` | Book a consultation |
+| `/track.html` | Track a ticket |
+| `/about.html` | The workroom |
+| `/contact.html` | Write the house |
+| `/desk.html` | Staff login and ledger |
 
-**Shop staff**
-- Dashboard with pipeline, revenue, and today’s fittings
-- Customers and measurement cards
-- Orders with a full workroom status flow
-- Fittings calendar, fabric inventory, invoices, reports
-- Role-based access: owner, master tailor, receptionist
+Bookings, tracking, and the desk all talk to a real Express API. Data is saved in `data/store.json`.
 
-## Run locally
+## Run
 
 ```bash
 npm install
@@ -25,15 +26,17 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Demo login
+## Demo
+
+Track ticket **VA-1042** with phone **+1 646 555 2211**.
+
+Staff desk (`/desk.html`):
 
 | Role | Shop ID | Email | Password |
 | --- | --- | --- | --- |
 | Owner | `ATELIER` | `owner@victoratelier.com` | `demo123` |
-| Master Tailor | `ATELIER` | `tailor@victoratelier.com` | `demo123` |
-| Reception | `ATELIER` | `front@victoratelier.com` | `demo123` |
-
-Data is stored in the browser (`localStorage`) so the shop works offline.
+| Tailor | `ATELIER` | `tailor@victoratelier.com` | `demo123` |
+| Front | `ATELIER` | `front@victoratelier.com` | `demo123` |
 
 ## Tests
 

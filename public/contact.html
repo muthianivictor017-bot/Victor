@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Victor Atelier</title>
+<link rel="icon" href="/assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="/"><img src="/assets/logo.png" alt="V"><b>Victor Atelier</b></a>
+    <button class="menu" onclick="toggleNav()" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    <nav class="nav" id="nav">
+      <a href="/">House</a>
+      <a href="/services.html">Services</a>
+      <a href="/lookbook.html">Lookbook</a>
+      <a href="/about.html">The workroom</a>
+      <a href="/track.html">Track</a>
+      <a href="/book.html" class="btn btn-gold">Book a fitting</a>
+      <a href="/desk.html">Staff</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap page-hero">
+  <div class="grid-2">
+    <div>
+      <div class="eyebrow">The desk</div>
+      <h1>Write the house.</h1>
+      <p class="lede">Questions about cloth, a wedding party, or a garment already in the workroom.</p>
+      <p>14 Cloth Lane<br>+1 (212) 555-0142<br>desk@victoratelier.com</p>
+    </div>
+    <form class="card pad" onsubmit="submitContact(event)">
+      <div id="contactMsg" class="notice"></div>
+      <div class="field"><label>Name</label><input id="cName" required></div>
+      <div class="field"><label>Email</label><input id="cEmail" type="email" required></div>
+      <div class="field"><label>Message</label><textarea id="cMessage" required></textarea></div>
+      <button class="btn btn-gold" type="submit">Send note</button>
+    </form>
+  </div>
+</main>
+<footer class="site-foot">
+  <div class="wrap"><div><strong>Victor Atelier</strong></div><div>Tue–Sat 10–18</div></div>
+</footer>
+<script src="/js/site.js"></script>
+</body>
+</html>

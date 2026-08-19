@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff desk — Victor Atelier</title>
+<link rel="icon" href="/assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body class="desk-body">
+<div class="auth-wrap" id="auth">
+  <div class="auth-card">
+    <div class="eyebrow">Staff desk</div>
+    <h1>The house ledger</h1>
+    <p class="hint">Sign in to the workroom. Demo shop ID is <b>ATELIER</b>.</p>
+    <div id="authMsg" class="notice"></div>
+    <form onsubmit="login(event)">
+      <div class="field"><label>Shop ID</label><input id="lgShop" value="ATELIER" required></div>
+      <div class="field"><label>Email</label><input id="lgEmail" type="email" required></div>
+      <div class="field"><label>Password</label><input id="lgPass" type="password" required></div>
+      <button class="btn btn-gold" type="submit" style="width:100%">Enter the desk</button>
+    </form>
+    <p class="eyebrow" style="text-align:center;margin-top:18px">Try a desk</p>
+    <div class="demo">
+      <button type="button" onclick="demo('owner')">Owner</button>
+      <button type="button" onclick="demo('tailor')">Tailor</button>
+      <button type="button" onclick="demo('reception')">Front</button>
+    </div>
+    <p style="text-align:center;margin-top:18px"><a href="/">← Back to the house</a></p>
+  </div>
+</div>
+
+<div class="shell" id="shell">
+  <aside class="side" id="side">
+    <div class="side-h">
+      <img src="/assets/logo.png" alt="">
+      <div><b class="serif" style="font-size:20px">Victor</b><div id="shopLabel" style="font-size:11px;color:#c4a35a">Atelier</div></div>
+    </div>
+    <nav>
+      <button class="active" data-page="dash" onclick="go('dash')">Desk</button>
+      <button data-page="orders" onclick="go('orders')">Orders</button>
+      <button data-page="fittings" onclick="go('fittings')">Fittings</button>
+      <button data-page="customers" onclick="go('customers')">Clients</button>
+      <button data-page="measures" onclick="go('measures')">Measures</button>
+      <button data-page="services" onclick="go('services')">Services</button>
+      <button data-page="fabrics" onclick="go('fabrics')">Cloth</button>
+      <button data-page="tailors" onclick="go('tailors')">Tailors</button>
+      <button data-page="billing" onclick="go('billing')">Invoices</button>
+      <button class="owner-only" data-page="reports" onclick="go('reports')">Reports</button>
+      <button class="owner-only" data-page="users" onclick="go('users')">Staff</button>
+    </nav>
+    <div class="who">
+      <div id="whoName">—</div>
+      <div id="whoRole" style="color:#c4a35a;font-size:11px;letter-spacing:.1em;text-transform:uppercase">—</div>
+      <button class="btn-sm" style="margin-top:10px;background:transparent;color:#e8b4b4" onclick="logout()">Leave desk</button>
+    </div>
+  </aside>
+  <main class="work">
+    <div class="toprow">
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="ham" onclick="document.getElementById('side').classList.toggle('open')">☰</button>
+        <h1 class="serif" id="pageTitle" style="font-size:34px">Desk</h1>
+      </div>
+      <button class="btn btn-gold" id="pageBtn" onclick="openCreate()">New order</button>
+    </div>
+
+    <section class="page on" id="page-dash">
+      <div class="stats">
+        <div class="stat"><span>Open orders</span><b id="stOpen">0</b></div>
+        <div class="stat"><span>Ready rail</span><b id="stReady">0</b></div>
+        <div class="stat"><span>Today fittings</span><b id="stFit">0</b></div>
+        <div class="stat"><span>Outstanding</span><b id="stDue">$0</b></div>
+      </div>
+      <div id="board"></div>
+      <h3 class="serif" style="margin:22px 0 8px">Today on the horse</h3>
+      <table><thead><tr><th>Time</th><th>Client</th><th>Purpose</th><th>Status</th></tr></thead><tbody id="todayFits"></tbody></table>
+    </section>
+
+    <section class="page" id="page-orders">
+      <div class="toolbar">
+        <input id="qOrder" placeholder="Search ticket or client" oninput="drawOrders()">
+        <select id="fOrder" onchange="drawOrders()"><option value="">All stages</option></select>
+      </div>
+      <table><thead><tr><th>Ticket</th><th>Client</th><th>Service</th><th>Due</th><th>Stage</th><th>Balance</th><th></th></tr></thead><tbody id="orderRows"></tbody></table>
+    </section>
+
+    <section class="page" id="page-fittings">
+      <div class="toolbar"><input type="date" id="fDate" onchange="drawFittings()"><input id="qFit" placeholder="Search" oninput="drawFittings()"></div>
+      <table><thead><tr><th>When</th><th>Client</th><th>Purpose</th><th>Status</th><th></th></tr></thead><tbody id="fitRows"></tbody></table>
+    </section>
+
+    <section class="page" id="page-customers">
+      <div class="toolbar"><input id="qCust" placeholder="Search clients" oninput="drawCustomers()"></div>
+      <table><thead><tr><th>Name</th><th>Phone</th><th>Style</th><th></th></tr></thead><tbody id="custRows"></tbody></table>
+    </section>
+
+    <section class="page" id="page-measures"><div class="meas" id="measGrid"></div></section>
+    <section class="page" id="page-services"><table><thead><tr><th>Service</th><th>Lead</th><th>From</th><th></th></tr></thead><tbody id="svcRows"></tbody></table></section>
+    <section class="page" id="page-fabrics"><table><thead><tr><th>Cloth</th><th>Mill</th><th>Meters</th><th></th></tr></thead><tbody id="fabRows"></tbody></table></section>
+    <section class="page" id="page-tailors"><table><thead><tr><th>Name</th><th>Craft</th><th>Load</th><th></th></tr></thead><tbody id="tailorRows"></tbody></table></section>
+    <section class="page" id="page-billing">
+      <div class="toolbar">
+        <input id="qBill" placeholder="Search invoices" oninput="drawBilling()">
+        <select id="fBill" onchange="drawBilling()"><option value="">All</option><option>Pending</option><option>Partial</option><option>Paid</option><option>Overdue</option></select>
+      </div>
+      <table><thead><tr><th>Invoice</th><th>Client</th><th>Total</th><th>Balance</th><th>Status</th><th></th></tr></thead><tbody id="billRows"></tbody></table>
+    </section>
+    <section class="page" id="page-reports">
+      <div class="toolbar">
+        <select id="repPeriod" onchange="drawReports()">
+          <option value="month">This month</option>
+          <option value="quarter">This quarter</option>
+          <option value="year">This year</option>
+          <option value="all">All time</option>
+        </select>
+      </div>
+      <div class="stats">
+        <div class="stat"><span>Orders</span><b id="rpOrders">0</b></div>
+        <div class="stat"><span>Revenue</span><b id="rpRev">$0</b></div>
+        <div class="stat"><span>Avg ticket</span><b id="rpAvg">$0</b></div>
+        <div class="stat"><span>Delivered</span><b id="rpDel">0</b></div>
+      </div>
+      <div class="grid-2">
+        <div class="card pad"><canvas id="chWeek" height="180"></canvas></div>
+        <div class="card pad"><canvas id="chStage" height="180"></canvas></div>
+      </div>
+    </section>
+    <section class="page" id="page-users"><div id="userList"></div></section>
+  </main>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <header><h2 class="serif" id="mTitle">New</h2><button class="btn-sm" onclick="closeModal()">✕</button></header>
+    <div class="body" id="mBody"></div>
+    <footer>
+      <button class="btn-sm" onclick="closeModal()">Cancel</button>
+      <button class="btn-sm btn-gold" id="mSave" onclick="saveModal()">Save</button>
+    </footer>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="/js/desk.js"></script>
+</body>
+</html>

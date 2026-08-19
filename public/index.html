@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victor Atelier — Bespoke tailoring</title>
+<link rel="icon" href="/assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="/"><img src="/assets/logo.png" alt="V"><b>Victor Atelier</b></a>
+    <button class="menu" onclick="toggleNav()" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    <nav class="nav" id="nav">
+      <a href="/">House</a>
+      <a href="/services.html">Services</a>
+      <a href="/lookbook.html">Lookbook</a>
+      <a href="/about.html">The workroom</a>
+      <a href="/track.html">Track</a>
+      <a href="/book.html" class="btn btn-gold">Book a fitting</a>
+      <a href="/desk.html">Staff</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img class="bg" src="/assets/hero.jpg" alt="Atelier workroom">
+  <div class="copy">
+    <div class="eyebrow">Cloth house · by appointment</div>
+    <h1>A suit should know<br>how you stand.</h1>
+    <p>Bespoke suiting, shirts, evening wear, and invisible alterations. Measured by hand. Finished on the horse.</p>
+    <div class="actions">
+      <a class="btn btn-gold" href="/book.html">Book a consultation</a>
+      <a class="btn btn-ghost" href="/services.html">See the work</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>The house list</h2>
+    <p class="lede">Six services, one workroom. Start with cloth and cut, or bring a garment you already love.</p>
+    <div class="grid-3" id="homeServices"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <h2>Four quiet visits</h2>
+    <p class="lede">No rush. No guesswork. A garment is born on paper, then chalk, then cloth.</p>
+    <div class="grid-3 steps-4">
+      <div class="step"><b>01</b><h3>Consult</h3><p>Occasion, posture, and cloth. You leave with a plan and a ticket.</p></div>
+      <div class="step"><b>02</b><h3>Measure</h3><p>Twenty points, noted once and kept for every future order.</p></div>
+      <div class="step"><b>03</b><h3>Baste</h3><p>Still in chalk. We move seams until the garment sits.</p></div>
+      <div class="step"><b>04</b><h3>Finish</h3><p>Buttons, lining, press. Collected from the rail or sent on.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap grid-2">
+    <img src="/assets/atelier-room.jpg" alt="Cutting room" style="width:100%;height:420px;object-fit:cover">
+    <div>
+      <div class="eyebrow">Since the first block</div>
+      <h2>Cut for the life you actually lead.</h2>
+      <p class="lede">Victor Atelier is a working house, not a showroom. Book online, track the ticket, collect when the rail says ready.</p>
+      <a class="btn btn-ink" href="/about.html">Meet the workroom</a>
+      <div class="quote" style="margin-top:24px">
+        <p>“They recut the shoulder twice and never once made me feel I was wasting cloth.”</p>
+        <span>James Whitfield · birdseye two-piece</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div><strong>Victor Atelier</strong><br>14 Cloth Lane<br>By appointment</div>
+    <div>desk@victoratelier.com<br>+1 (212) 555-0142</div>
+    <div>Tue–Sat 10–18<br><a href="/contact.html">Write the house</a></div>
+  </div>
+</footer>
+<script src="/js/site.js"></script>
+</body>
+</html>
