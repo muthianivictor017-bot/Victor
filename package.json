@@ -2,15 +2,37 @@
   "name": "duka-business-manager",
   "version": "1.0.0",
   "description": "Duka — Mobile app for small businesses: sales, purchases & stock. Offline-first PWA.",
+  "type": "commonjs",
   "main": "server.js",
+  "keywords": ["pwa", "offline", "small-business", "pos", "inventory", "sales", "purchases"],
+  "author": "Duka",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "NODE_ENV=development node server.js",
+    "test": "node --test --test-reporter=spec 2>&1 | head -n 50; echo \"No tests yet — add to tests/\"",
+    "lint": "echo \"No linter configured yet\"",
+    "format": "echo \"No formatter yet\"",
+    "health": "curl -s http://localhost:3000/api/health | jq . || curl -s http://localhost:3000/api/health"
   },
   "dependencies": {
     "express": "^4.18.2"
   },
-  "engines": {
-    "node": ">=18.0.0"
-  }
+  "optionalDependencies": {
+    "compression": "^1.7.4",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {},
+  "browserslist": [
+    "defaults",
+    "not dead",
+    "iOS >= 12",
+    "Android >= 8"
+  ]
 }

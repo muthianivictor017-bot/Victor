@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<rect width="512" height="512" rx="120" fill="#0f766e"/>
+<rect x="72" y="98" width="368" height="316" rx="28" fill="white" opacity="0.98"/>
+<path d="M142 148 h228 a16 16 0 0 1 16 16 v24 H126 v-24 a16 16 0 0 1 16-16z" fill="#0f766e"/>
+<circle cx="168" cy="172" r="8" fill="white" opacity="0.9"/><circle cx="194" cy="172" r="8" fill="white" opacity="0.9"/><circle cx="220" cy="172" r="8" fill="white" opacity="0.9"/>
+<!-- shop icon -->
+<g transform="translate(256,278)">
+  <rect x="-82" y="-42" width="164" height="96" rx="16" fill="#f0fdfa" stroke="#99f6e4" stroke-width="4"/>
+  <path d="M-62 -42 L-42 -72 H42 L62 -42" fill="none" stroke="#0f766e" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="-62" y="6" width="124" height="40" rx="8" fill="#0f766e"/>
+  <circle cx="-22" cy="26" r="5" fill="white"/><circle cx="22" cy="26" r="5" fill="white"/>
+  <path d="M-48 -10 a34 34 0 0 1 96 0" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+</g>
+</svg>

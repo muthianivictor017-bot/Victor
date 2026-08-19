@@ -1,13 +1,25 @@
 {
   "name": "Duka — Small Business Manager",
   "short_name": "Duka",
-  "description": "Sales, Purchases & Stock for small businesses. Works offline.",
-  "start_url": "/",
+  "description": "Sales, Purchases & Stock for small businesses. Offline-first, fast & simple.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#0f766e",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "background_color": "#f8fafc",
   "theme_color": "#0f766e",
   "orientation": "portrait-primary",
+  "categories": ["business", "finance", "productivity"],
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
   "icons": [
+    {
+      "src": "/public/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f6d2.png",
       "sizes": "192x192",
@@ -20,5 +32,44 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "shortcuts": [
+    {
+      "name": "New Sale",
+      "short_name": "Sale",
+      "description": "Record a new sale",
+      "url": "/?action=sale",
+      "icons": [{ "src": "/public/icons/icon.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "New Purchase",
+      "short_name": "Purchase",
+      "description": "Record stock purchase",
+      "url": "/?action=purchase",
+      "icons": [{ "src": "/public/icons/icon.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Stock",
+      "short_name": "Stock",
+      "description": "Manage stock",
+      "url": "/?view=stock",
+      "icons": [{ "src": "/public/icons/icon.svg", "sizes": "96x96" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/public/icons/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "form_factor": "narrow",
+      "label": "Duka — Sales, Purchases & Stock"
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "handle_links": "preferred"
 }

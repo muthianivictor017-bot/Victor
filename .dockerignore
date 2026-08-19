@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+README.md
+README.pdf
+.env
+.env.local
+.DS_Store
+coverage
+.nyc_output
+.arena
+.svelte-kit
+.next
+dist

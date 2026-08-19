@@ -7,8 +7,16 @@
 <meta name="theme-color" content="#0f766e">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Duka">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="description" content="Duka — Manage sales, purchases and stock for your small business. Offline, fast, on your phone.">
+<meta name="application-name" content="Duka">
+<meta name="msapplication-TileColor" content="#0f766e">
+<meta name="msapplication-TileImage" content="/public/icons/icon.svg">
 <link rel="manifest" href="/manifest.json">
+<link rel="icon" type="image/svg+xml" href="/public/icons/icon.svg">
+<link rel="apple-touch-icon" href="/public/icons/icon.svg">
+<link rel="mask-icon" href="/public/icons/icon.svg" color="#0f766e">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -1957,14 +1965,66 @@ function toast(msg, type='info'){
   el._t=setTimeout(()=> el.classList.remove('show'), 2800);
 }
 
-// ===== PWA helper =====
+// ===== PWA: register real service worker + handle shortcuts =====
 if('serviceWorker' in navigator){
-  // minimal inline SW via blob for offline cache of shell
-  const swCode = `self.addEventListener('install',e=>self.skipWaiting()); self.addEventListener('activate',e=>self.clients.claim()); self.addEventListener('fetch',e=>{});`;
-  const blob=new Blob([swCode],{type:'text/javascript'});
-  const url=URL.createObjectURL(blob);
-  navigator.serviceWorker.register(url).catch(()=>{});
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+      .then(reg => {
+        // check for updates
+        reg.addEventListener('updatefound', () => {
+          const w = reg.installing;
+          w && w.addEventListener('statechange', () => {
+            if (w.state === 'installed' && navigator.serviceWorker.controller) {
+              toast('Update ready — reload to refresh', 'info');
+            }
+          });
+        });
+      })
+      .catch(() => {
+        // fallback: blob SW (should not happen)
+        const swCode = `self.addEventListener('install',e=>self.skipWaiting()); self.addEventListener('activate',e=>self.clients.claim());`;
+        const blob=new Blob([swCode],{type:'text/javascript'});
+        const url=URL.createObjectURL(blob);
+        navigator.serviceWorker.register(url).catch(()=>{});
+      });
+
+    // handle controller change (new SW activated)
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!refreshing) { refreshing = true; window.location.reload(); }
+    });
+  });
+
+  // Handle PWA shortcuts / deep links via query params
+  const params = new URLSearchParams(location.search);
+  const action = params.get('action') || params.get('view');
+  if (action === 'sale') setTimeout(()=> openSale(), 600);
+  else if (action === 'purchase') setTimeout(()=> openPurchase(), 600);
+  else if (action === 'stock') setTimeout(()=> navTo('stock'), 400);
 }
+
+// Install prompt (beforeinstallprompt)
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  // show subtle install hint after 2s on dashboard
+  setTimeout(() => {
+    if (deferredPrompt && currentPage === 'dashboard') {
+      const hint = document.createElement('div');
+      hint.id = 'installHint';
+      hint.style.cssText = 'position:fixed; left:50%; bottom:calc(var(--nav-h) + 84px); transform:translateX(-50%); background:#0f172a; color:white; padding:10px 14px; border-radius:999px; font-size:12px; font-weight:700; display:flex; gap:8px; align-items:center; box-shadow:0 10px 24px rgba(0,0,0,0.18); z-index:55; cursor:pointer';
+      hint.innerHTML = '<i class="fa-solid fa-download"></i> Install Duka <span style="opacity:0.6">—</span> <span style="color:#5eead4">Add to Home</span> <i class="fa-solid fa-xmark" style="margin-left:8px; opacity:0.7"></i>';
+      hint.onclick = (ev) => {
+        if (ev.target.closest('.fa-xmark')) { hint.remove(); return; }
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(()=> { deferredPrompt=null; hint.remove(); });
+      };
+      document.body.appendChild(hint);
+      setTimeout(()=> hint.remove(), 8000);
+    }
+  }, 2000);
+});
 </script>
 </body>
 </html>
