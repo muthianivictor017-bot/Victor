@@ -4,14 +4,21 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files from the root directory
+app.use(express.json({ limit: '2mb' }));
 app.use(express.static(path.join(__dirname)));
 
-// Serve the main HTML file for all routes (SPA support)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+app.get('/health', (_req, res) => {
+  res.json({ ok: true, name: 'Victor Atelier' });
 });
 
-app.listen(PORT, () => {
-    console.log(`MediCare HMS running on port ${PORT}`);
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+if (require.main === module) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Victor Atelier running on port ${PORT}`);
+  });
+}
+
+module.exports = app;

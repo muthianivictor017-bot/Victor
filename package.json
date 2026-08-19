@@ -1,11 +1,12 @@
 {
-  "name": "medicare-hms",
+  "name": "victor-atelier",
   "version": "1.0.0",
-  "description": "MediCare Clinic Management System",
+  "description": "Victor Atelier — bespoke tailor shop service management",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "test": "node test.js"
   },
   "dependencies": {
     "express": "^4.18.2"
