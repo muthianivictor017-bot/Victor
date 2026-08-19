@@ -31,50 +31,50 @@ function seed() {
     shop: {
       id: 'ATELIER',
       name: 'Victor Atelier',
-      phone: '+1 (212) 555-0142',
-      email: 'desk@victoratelier.com',
-      address: '14 Cloth Lane',
-      hours: 'Tue–Sat 10:00–18:00',
-      city: 'Nairobi & New York'
+      phone: '+254 20 221 0142',
+      email: 'desk@victoratelier.co.ke',
+      address: '2nd Floor, 14 Biashara Street',
+      hours: 'Tue–Sat 09:00–18:00',
+      city: 'Nairobi, Kenya'
     },
     users: [
-      { id: 'u1', name: 'Victor Moreau', email: 'owner@victoratelier.com', pass: 'demo123', role: 'owner', phone: '+1 212 555 0101' },
-      { id: 'u2', name: 'Elena Park', email: 'tailor@victoratelier.com', pass: 'demo123', role: 'tailor', phone: '+1 212 555 0102' },
-      { id: 'u3', name: 'Sam Reed', email: 'front@victoratelier.com', pass: 'demo123', role: 'reception', phone: '+1 212 555 0103' }
+      { id: 'u1', name: 'Victor Muthiani', email: 'owner@victoratelier.com', pass: 'demo123', role: 'owner', phone: '+254 722 110 101' },
+      { id: 'u2', name: 'Amina Wanjiku', email: 'tailor@victoratelier.com', pass: 'demo123', role: 'tailor', phone: '+254 722 110 102' },
+      { id: 'u3', name: 'Sam Kariuki', email: 'front@victoratelier.com', pass: 'demo123', role: 'reception', phone: '+254 722 110 103' }
     ],
     customers: [
-      { id: 'c1', name: 'James Whitfield', phone: '+1 646 555 2211', email: 'james@whitfield.co', style: 'Classic English', notes: 'Prefers mid-grey flannel' },
-      { id: 'c2', name: 'Amara Cole', phone: '+1 917 555 8844', email: 'amara@cole.studio', style: 'Soft Neapolitan', notes: 'Wedding party of 6' },
-      { id: 'c3', name: 'Owen Hart', phone: '+1 347 555 1190', email: 'owen.hart@mail.com', style: 'Workwear', notes: 'Short right arm' }
+      { id: 'c1', name: 'James Omondi', phone: '+254 712 345 221', email: 'james.omondi@mail.com', style: 'English cut', notes: 'Prefers mid-grey flannel for Uhuru Highway meetings' },
+      { id: 'c2', name: 'Amara Wanjiru', phone: '+254 733 884 412', email: 'amara.wanjiru@mail.com', style: 'Soft Neapolitan', notes: 'Wedding party of 6 in Karen' },
+      { id: 'c3', name: 'Owen Mwangi', phone: '+254 701 119 033', email: 'owen.mwangi@mail.com', style: 'Workwear', notes: 'Short right arm' }
     ],
     measures: [
-      { id: 'm1', customerId: 'c1', date: t, takenBy: 'Elena Park', neck: 15.5, shoulder: 18, chest: 40, waist: 34, hips: 40, sleeve: 25, jacket: 30, shirt: 31, inseam: 32, outseam: 42, thigh: 24, cuff: 8.5, notes: 'Square shoulders' },
-      { id: 'm2', customerId: 'c2', date: t, takenBy: 'Elena Park', neck: 13.5, shoulder: 15.5, chest: 35, waist: 27, hips: 38, sleeve: 23, jacket: 26, shirt: 27, inseam: 30, outseam: 39, thigh: 22, cuff: 7.5, notes: 'High hip' }
+      { id: 'm1', customerId: 'c1', date: t, takenBy: 'Amina Wanjiku', neck: 15.5, shoulder: 18, chest: 40, waist: 34, hips: 40, sleeve: 25, jacket: 30, shirt: 31, inseam: 32, outseam: 42, thigh: 24, cuff: 8.5, notes: 'Square shoulders' },
+      { id: 'm2', customerId: 'c2', date: t, takenBy: 'Amina Wanjiku', neck: 13.5, shoulder: 15.5, chest: 35, waist: 27, hips: 38, sleeve: 23, jacket: 26, shirt: 27, inseam: 30, outseam: 39, thigh: 22, cuff: 7.5, notes: 'High hip' }
     ],
     services: [
-      { id: 's1', name: 'Bespoke two-piece', category: 'Suiting', days: 21, price: 1850, blurb: 'Hand-cut jacket and trouser from the house block.', image: '/assets/lookbook-suit.jpg' },
-      { id: 's2', name: 'Bespoke three-piece', category: 'Suiting', days: 28, price: 2400, blurb: 'Jacket, trouser, and waistcoat. Full canvas.', image: '/assets/lookbook-suit.jpg' },
-      { id: 's3', name: 'City shirt, made to measure', category: 'Shirting', days: 10, price: 185, blurb: 'Two-ply cotton, mother-of-pearl, your collar.', image: '/assets/lookbook-shirt.jpg' },
-      { id: 's4', name: 'Evening dress', category: 'Womenswear', days: 24, price: 980, blurb: 'Bias or structured. One muslin, two fittings.', image: '/assets/lookbook-dress.jpg' },
-      { id: 's5', name: 'Hem, sleeve, or waist', category: 'Alterations', days: 4, price: 45, blurb: 'Clean, invisible work on garments you already own.', image: '/assets/hands-work.jpg' },
-      { id: 's6', name: 'Jacket reline', category: 'Alterations', days: 8, price: 220, blurb: 'New lining, pockets reset, canvas checked.', image: '/assets/atelier-room.jpg' }
+      { id: 's1', name: 'Bespoke two-piece', category: 'Suiting', days: 21, price: 85000, blurb: 'Hand-cut jacket and trouser from the house block.', image: '/assets/lookbook-suit.jpg' },
+      { id: 's2', name: 'Bespoke three-piece', category: 'Suiting', days: 28, price: 120000, blurb: 'Jacket, trouser, and waistcoat. Full canvas.', image: '/assets/lookbook-suit.jpg' },
+      { id: 's3', name: 'City shirt, made to measure', category: 'Shirting', days: 10, price: 6500, blurb: 'Two-ply cotton, mother-of-pearl, your collar.', image: '/assets/lookbook-shirt.jpg' },
+      { id: 's4', name: 'Evening dress', category: 'Womenswear', days: 24, price: 48000, blurb: 'Bias or structured. One muslin, two fittings.', image: '/assets/lookbook-dress.jpg' },
+      { id: 's5', name: 'Hem, sleeve, or waist', category: 'Alterations', days: 4, price: 1200, blurb: 'Clean, invisible work on garments you already own.', image: '/assets/hands-work.jpg' },
+      { id: 's6', name: 'Jacket reline', category: 'Alterations', days: 8, price: 8500, blurb: 'New lining, pockets reset, canvas checked.', image: '/assets/atelier-room.jpg' }
     ],
     tailors: [
-      { id: 't1', name: 'Elena Park', craft: 'Coats & canvas', phone: '+1 212 555 0102' },
-      { id: 't2', name: 'Ibrahim Diallo', craft: 'Trousers & finishing', phone: '+1 212 555 0104' },
-      { id: 't3', name: 'Mei Chen', craft: 'Shirts & dresses', phone: '+1 212 555 0105' }
+      { id: 't1', name: 'Amina Wanjiku', craft: 'Coats & canvas', phone: '+254 722 110 102' },
+      { id: 't2', name: 'Ibrahim Otieno', craft: 'Trousers & finishing', phone: '+254 722 110 104' },
+      { id: 't3', name: 'Mei Chen', craft: 'Shirts & dresses', phone: '+254 722 110 105' }
     ],
     fabrics: [
-      { id: 'f1', name: 'Charcoal birdseye', mill: 'Fox Brothers', meters: 18, price: 86, min: 6 },
-      { id: 'f2', name: 'Navy hopsack', mill: 'Dormeuil', meters: 9, price: 112, min: 5 },
-      { id: 'f3', name: 'Ivory poplin', mill: 'Albini', meters: 42, price: 28, min: 12 },
-      { id: 'f4', name: 'Midnight barathea', mill: 'Holland & Sherry', meters: 4, price: 140, min: 5 }
+      { id: 'f1', name: 'Charcoal birdseye', mill: 'Fox Brothers', meters: 18, price: 4800, min: 6 },
+      { id: 'f2', name: 'Navy hopsack', mill: 'Dormeuil', meters: 9, price: 6200, min: 5 },
+      { id: 'f3', name: 'Ivory poplin', mill: 'Rivatex', meters: 42, price: 1800, min: 12 },
+      { id: 'f4', name: 'Midnight barathea', mill: 'Holland & Sherry', meters: 4, price: 7800, min: 5 }
     ],
     orders: [
-      { id: 'o1', ticket: 'VA-1042', customerId: 'c1', serviceId: 's1', tailorId: 't1', fabricId: 'f1', stage: 'Sewing', due: addDays(t, 8), price: 1850, paid: 800, notes: 'Two-button, side vents', created: addDays(t, -10) },
-      { id: 'o2', ticket: 'VA-1048', customerId: 'c2', serviceId: 's4', tailorId: 't3', fabricId: '', stage: 'Fitting', due: addDays(t, 3), price: 980, paid: 400, notes: 'Ivory crepe, tea-length', created: addDays(t, -12) },
-      { id: 'o3', ticket: 'VA-1051', customerId: 'c3', serviceId: 's5', tailorId: 't2', fabricId: '', stage: 'Ready', due: t, price: 45, paid: 0, notes: 'Hem chinos 31"', created: addDays(t, -3) },
-      { id: 'o4', ticket: 'VA-1055', customerId: 'c1', serviceId: 's3', tailorId: 't3', fabricId: 'f3', stage: 'Received', due: addDays(t, 9), price: 185, paid: 185, notes: 'Semi-spread, French cuff', created: t }
+      { id: 'o1', ticket: 'VA-1042', customerId: 'c1', serviceId: 's1', tailorId: 't1', fabricId: 'f1', stage: 'Sewing', due: addDays(t, 8), price: 85000, paid: 35000, notes: 'Two-button, side vents', created: addDays(t, -10) },
+      { id: 'o2', ticket: 'VA-1048', customerId: 'c2', serviceId: 's4', tailorId: 't3', fabricId: '', stage: 'Fitting', due: addDays(t, 3), price: 48000, paid: 20000, notes: 'Ivory crepe, tea-length', created: addDays(t, -12) },
+      { id: 'o3', ticket: 'VA-1051', customerId: 'c3', serviceId: 's5', tailorId: 't2', fabricId: '', stage: 'Ready', due: t, price: 1200, paid: 0, notes: 'Hem chinos 31"', created: addDays(t, -3) },
+      { id: 'o4', ticket: 'VA-1055', customerId: 'c1', serviceId: 's3', tailorId: 't3', fabricId: 'f3', stage: 'Received', due: addDays(t, 9), price: 6500, paid: 6500, notes: 'Semi-spread, French cuff', created: t }
     ],
     fittings: [
       { id: 'a1', customerId: 'c2', tailorId: 't3', date: t, time: '11:00', purpose: 'Baste fitting — evening dress', status: 'Confirmed', notes: '' },
@@ -82,9 +82,9 @@ function seed() {
       { id: 'a3', customerId: 'c3', tailorId: 't2', date: addDays(t, 1), time: '10:00', purpose: 'Collect hem', status: 'Pending', notes: '' }
     ],
     invoices: [
-      { id: 'i1', number: 'INV-2201', customerId: 'c1', orderId: 'o1', date: addDays(t, -10), amount: 1850, payments: [{ id: 'p1', amount: 800, method: 'Card', date: addDays(t, -10), ref: 'CH-8831' }], notes: 'Deposit on suit' },
-      { id: 'i2', number: 'INV-2204', customerId: 'c2', orderId: 'o2', date: addDays(t, -12), amount: 980, payments: [{ id: 'p2', amount: 400, method: 'Transfer', date: addDays(t, -12), ref: 'WT-19' }], notes: '' },
-      { id: 'i3', number: 'INV-2210', customerId: 'c3', orderId: 'o3', date: addDays(t, -3), amount: 45, payments: [], notes: 'Walk-in hem' }
+      { id: 'i1', number: 'INV-2201', customerId: 'c1', orderId: 'o1', date: addDays(t, -10), amount: 85000, payments: [{ id: 'p1', amount: 35000, method: 'M-Pesa', date: addDays(t, -10), ref: 'QGH7X221' }], notes: 'Deposit on suit' },
+      { id: 'i2', number: 'INV-2204', customerId: 'c2', orderId: 'o2', date: addDays(t, -12), amount: 48000, payments: [{ id: 'p2', amount: 20000, method: 'M-Pesa', date: addDays(t, -12), ref: 'QKL9M118' }], notes: '' },
+      { id: 'i3', number: 'INV-2210', customerId: 'c3', orderId: 'o3', date: addDays(t, -3), amount: 1200, payments: [], notes: 'Walk-in hem' }
     ],
     messages: []
   };

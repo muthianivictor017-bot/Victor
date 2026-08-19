@@ -13,7 +13,7 @@ async function api(path, opts = {}) {
 }
 
 function money(n) {
-  return '$' + Number(n || 0).toFixed(2);
+  return 'KSh ' + Number(n || 0).toLocaleString('en-KE');
 }
 
 function showNotice(id, text, ok) {

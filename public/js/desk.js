@@ -6,7 +6,7 @@ let cache = {};
 let modal = { type: null, id: null };
 let charts = {};
 
-const money = (n) => '$' + Number(n || 0).toFixed(2);
+const money = (n) => 'KSh ' + Number(n || 0).toLocaleString('en-KE');
 const slug = (s) => String(s || '').toLowerCase();
 const toast = (t) => {
   const el = document.getElementById('toast');
@@ -331,7 +331,7 @@ function openCreate(type, id) {
     <div class="field"><label>Cloth</label><input id="f_name" value="${esc(item.name)}"></div>
     <div class="field"><label>Mill</label><input id="f_mill" value="${esc(item.mill)}"></div>
     <div class="field"><label>Meters</label><input id="f_meters" type="number" step="0.1" value="${item.meters || 0}"></div>
-    <div class="field"><label>$ / m</label><input id="f_price" type="number" value="${item.price || 0}"></div></div>`;
+    <div class="field"><label>KSh / m</label><input id="f_price" type="number" value="${item.price || 0}"></div></div>`;
   if (type === 'tailor') mBody.innerHTML = `<div class="row2">
     <div class="field"><label>Name</label><input id="f_name" value="${esc(item.name)}"></div>
     <div class="field"><label>Craft</label><input id="f_craft" value="${esc(item.craft)}"></div>
@@ -396,7 +396,7 @@ async function advance(id) {
 async function takePay(id) {
   const amt = prompt('Amount received');
   if (amt === null) return;
-  await req(`/api/invoices/${id}/pay`, { method: 'POST', body: JSON.stringify({ amount: Number(amt), method: 'Cash' }) });
+  await req(`/api/invoices/${id}/pay`, { method: 'POST', body: JSON.stringify({ amount: Number(amt), method: 'M-Pesa' }) });
   toast('Payment noted');
   go('billing');
 }

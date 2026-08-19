@@ -57,7 +57,7 @@ const server = app.listen(0, '127.0.0.1', () => {
 
       const booked = await request('POST', '/api/book', {
         name: 'Test Client',
-        phone: '+1 555 0199',
+        phone: '+254 700 019 199',
         email: 'test@example.com',
         serviceId: list[0].id,
         date: '2026-09-01',
@@ -68,7 +68,7 @@ const server = app.listen(0, '127.0.0.1', () => {
       const ticket = JSON.parse(booked.body).ticket;
       assert.ok(ticket);
 
-      const tracked = await request('GET', `/api/track?ticket=${encodeURIComponent(ticket)}&phone=${encodeURIComponent('+1 555 0199')}`);
+      const tracked = await request('GET', `/api/track?ticket=${encodeURIComponent(ticket)}&phone=${encodeURIComponent('+254 700 019 199')}`);
       assert.strictEqual(tracked.status, 200);
       assert.strictEqual(JSON.parse(tracked.body).ticket, ticket);
 

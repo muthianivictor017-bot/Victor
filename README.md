@@ -28,7 +28,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Demo
 
-Track ticket **VA-1042** with phone **+1 646 555 2211**.
+Nairobi house on Biashara Street. Prices in Kenyan shillings. Pay by M-Pesa.
+
+Track ticket **VA-1042** with phone **+254 712 345 221**.
 
 Staff desk (`/desk.html`):
 
