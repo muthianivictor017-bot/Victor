@@ -1,7 +1,7 @@
 {
-  "name": "medicare-hms",
+  "name": "duka-business-manager",
   "version": "1.0.0",
-  "description": "MediCare Clinic Management System",
+  "description": "Duka — Mobile app for small businesses: sales, purchases & stock. Offline-first PWA.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

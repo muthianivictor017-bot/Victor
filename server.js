@@ -13,5 +13,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`MediCare HMS running on port ${PORT}`);
+    console.log(`Duka Business Manager running on port ${PORT}`);
 });
